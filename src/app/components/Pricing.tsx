@@ -1,0 +1,299 @@
+import { useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
+import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { useLang } from "../context/LanguageContext";
+import { t } from "../translations";
+
+export function Pricing() {
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
+  const ref = useRef(null);
+  const inView = useInView(ref, {once: true,margin: "-80px",});
+  const { lang } = useLang();
+  const tx = t[lang].pricing;
+
+  const scrollToContact = () =>
+    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+
+  return (
+    <section id="pricing" className="py-28 bg-[#E8E6E1]">
+      <div
+  className="max-w-7xl mx-auto px-6 md:px-10" ref={ref}>
+        {/* ── Section Header ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-6"
+        >
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px bg-[#D4AF37]" />
+            <span
+              className="text-[#643D70] tracking-[0.2em] uppercase"
+              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}
+            >
+              {tx.eyebrow}
+            </span>
+            <div className="w-8 h-px bg-[#D4AF37]" />
+          </div>
+          <h2
+            className="text-[#343434] mb-5"
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400, lineHeight: 1.12 }}
+          >
+            {tx.heading}
+          </h2>
+          <p
+            className="text-[#343434]/60 max-w-2xl mx-auto"
+            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "16px", fontWeight: 300, lineHeight: 1.8 }}
+          >
+            {tx.sub}
+          </p>
+        </motion.div>
+
+        {/* ── Pricing Cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+          {tx.plans.map((plan, i) => {
+            const isPopular = plan.popular;
+            return (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 28 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
+                className={`relative flex flex-col overflow-hidden ${
+                  isPopular
+                    ? "bg-[#643D70] shadow-2xl shadow-[#643D70]/25 md:-translate-y-4 md:scale-[1.02]"
+                    : "bg-white shadow-lg shadow-black/5"
+                }`}
+                style={{ borderRadius: "6px" }}
+              >
+                {/* Most Popular badge */}
+                {isPopular && (
+                  <div className="flex items-center justify-center gap-2 py-2.5 bg-[#D4AF37]">
+                    <Sparkles size={12} className="text-[#343434]" />
+                    <span
+                      className="text-[#343434] tracking-[0.18em] uppercase"
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600 }}
+                    >
+                      {tx.popularLabel}
+                    </span>
+                  </div>
+                )}
+
+                <div className="p-8 flex flex-col flex-1">
+                  {/* Plan name */}
+                  <div
+                    className={`tracking-[0.22em] uppercase mb-2 ${isPopular ? "text-[#BCA9D0]" : "text-[#643D70]"}`}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}
+                  >
+                    {plan.name}
+                  </div>
+
+                  {/* Price */}
+                  <div className="mb-1">
+                    <span
+                      className={isPopular ? "text-white" : "text-[#343434]"}
+                      style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 3.5vw, 42px)", fontWeight: 400, letterSpacing: "-0.02em" }}
+                    >
+                      {plan.price}
+                    </span>
+                  </div>
+                  <div
+                    className={`mb-1 ${isPopular ? "text-white/50" : "text-[#343434]/40"}`}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 300 }}
+                  >
+                    {plan.period}
+                  </div>
+
+                  {/* Divider */}
+                  <div className={`w-full h-px my-6 ${isPopular ? "bg-white/15" : "bg-[#643D70]/10"}`} />
+
+                  {/* Description */}
+                  <p
+                    className={`mb-6 ${isPopular ? "text-white/65" : "text-[#343434]/55"}`}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.7 }}
+                  >
+                    {plan.desc}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="flex flex-col gap-3 mb-8 flex-1">
+                    {plan.features.map((feat, fi) => (
+                      <li key={fi} className="flex items-start gap-3">
+                        <div
+                          className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 ${
+                            isPopular ? "bg-[#D4AF37]" : "bg-[#643D70]/12"
+                          }`}
+                        >
+                          <Check
+                            size={9}
+                            className={isPopular ? "text-[#343434]" : "text-[#643D70]"}
+                            strokeWidth={2.5}
+                          />
+                        </div>
+                        <span
+                          className={isPopular ? "text-white/80" : "text-[#343434]/65"}
+                          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13.5px", fontWeight: 300, lineHeight: 1.5 }}
+                        >
+                          {feat}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  {/* CTA */}
+<div className="flex flex-col gap-3 mt-auto">
+<button
+  onClick={() => setSelectedPlan(plan)}
+  className={`w-full py-4 flex items-center justify-center gap-2 transition-all duration-300 ${
+    isPopular
+      ? "bg-[#D4AF37] text-[#343434] hover:bg-white hover:text-[#643D70]"
+      : "bg-[#643D70] text-white hover:bg-[#543060]"
+  }`}
+  style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px" }}
+>
+  {plan.cta}
+  <ArrowRight size={14} />
+</button>
+    <button
+    onClick={scrollToContact}
+    className={`w-full py-4 border transition-all duration-300 tracking-[0.15em] uppercase ${
+      isPopular
+        ? "border-white/40 text-white hover:bg-white hover:text-[#643D70]"
+        : "border-[#643D70]/40 text-[#643D70] hover:bg-[#643D70] hover:text-white"
+    }`}
+    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600 }}
+  >
+    Request a Custom Quote
+  </button>
+</div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* ── Additional Services ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="mt-24"
+        >
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <div className="w-8 h-px bg-[#D4AF37]" />
+              <span
+                className="text-[#643D70] tracking-[0.2em] uppercase"
+                style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}
+              >
+                {tx.addonsEyebrow}
+              </span>
+              <div className="w-8 h-px bg-[#D4AF37]" />
+            </div>
+            <h3
+              className="text-[#343434]"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3vw, 40px)", fontWeight: 400, lineHeight: 1.2 }}
+            >
+              {tx.addonsHeading}
+            </h3>
+          </div>
+
+          {/* Service cards grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {tx.addons.map((addon, i) => (
+              <motion.div
+                key={addon.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.45 + i * 0.05 }}
+                className="bg-white p-6 flex flex-col group hover:shadow-md transition-shadow duration-300"
+                style={{ borderRadius: "4px", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}
+              >
+                <div className="w-6 h-0.5 bg-[#D4AF37] mb-4 transition-all duration-300 group-hover:w-10" />
+                <div
+                  className="text-[#343434] mb-3 flex-1"
+                  style={{ fontFamily: "'Playfair Display', serif", fontSize: "15px", fontWeight: 500, lineHeight: 1.3 }}
+                >
+                  {addon.title}
+                </div>
+                <div
+                  className="text-[#643D70]"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400 }}
+                >
+                  {addon.price}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Custom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mt-16 text-center bg-[#643D70] py-14 px-8"
+            style={{ borderRadius: "6px" }}
+          >
+            <h3
+              className="text-white mb-4"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 400 }}
+            >
+              {tx.customHeading}
+            </h3>
+            <p
+              className="text-white/60 max-w-xl mx-auto mb-8"
+              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", fontWeight: 300, lineHeight: 1.8 }}
+            >
+              {tx.customSub}
+            </p>
+            <button
+              onClick={scrollToContact}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300 cursor-pointer border-none group"
+              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "3px" }}
+            >
+              {tx.customCta}
+              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </motion.div>
+        </motion.div>
+      </div>
+      {selectedPlan && (
+  <div className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center px-6">
+    <div className="bg-white max-w-xl w-full p-8 relative shadow-2xl">
+      <button
+        onClick={() => setSelectedPlan(null)}
+        className="absolute top-4 right-4 text-[#643D70]"
+      >
+        ✕
+      </button>
+
+      <p className="text-[#643D70] uppercase tracking-[0.2em] text-xs mb-3">
+        Start Your Project
+      </p>
+
+      <h3 className="text-3xl mb-2 text-[#343434]">
+        {selectedPlan.name}
+      </h3>
+
+      <p className="text-[#343434]/70 mb-6">
+        Tell us a little about your business before completing your purchase.
+      </p>
+
+      <div className="grid gap-4">
+        <input className="border p-3" placeholder="Full Name" />
+        <input className="border p-3" placeholder="Email Address" />
+        <input className="border p-3" placeholder="Company Name" />
+        <input className="border p-3" placeholder="Business Website (Optional)" />
+        <textarea className="border p-3 min-h-[120px]" placeholder="Tell us about your project" />
+      </div>
+
+      <button className="mt-6 w-full bg-[#643D70] text-white py-4 uppercase tracking-[0.15em]">
+        Continue to Secure Payment
+      </button>
+    </div>
+  </div>
+)}
+    </section>
+  );
+}
