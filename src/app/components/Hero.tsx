@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import yesseniaSrc from "../imports/hero-yildiz.jpeg";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
@@ -126,7 +125,7 @@ export function Hero() {
                 style={{ width: "clamp(280px, 38vw, 460px)", aspectRatio: "4/5", borderRadius: "4px" }}
               >
                 <ImageWithFallback
-                  src={yesseniaSrc}
+                  src="/hero-yildiz.jpeg"
                   alt="Yessenia Melo, Founder of Yildiz Creative"
                   className="w-full h-full object-cover object-top"
                 />
