@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import yesseniaSrc from "../../imports/hero-yildiz.jpeg";
+import yesseniaSrc from "../imports/hero-yildiz.jpeg";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
