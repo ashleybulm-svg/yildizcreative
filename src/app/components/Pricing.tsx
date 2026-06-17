@@ -262,7 +262,7 @@ export function Pricing() {
   <div className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center px-6">
     <div className="bg-white max-w-xl w-full p-8 relative shadow-2xl">
       <button
-        onClick={() => setSelectedPlan(null)}
+  
         className="absolute top-4 right-4 text-[#643D70]"
       >
         ✕
@@ -287,10 +287,14 @@ export function Pricing() {
         <input className="border p-3" placeholder="Business Website (Optional)" />
         <textarea className="border p-3 min-h-[120px]" placeholder="Tell us about your project" />
       </div>
-
-      <button className="mt-6 w-full bg-[#643D70] text-white py-4 uppercase tracking-[0.15em]">
-        Continue to Secure Payment
-      </button>
+      <a
+  href={selectedPlan?.paymentLink || "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00"}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-6 w-full bg-[#643D70] text-white py-4 uppercase tracking-[0.2em] block text-center"
+>
+ PAY WITH STRIPE TEST
+</a>
     </div>
   </div>
 )}
