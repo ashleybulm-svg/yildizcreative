@@ -156,7 +156,7 @@ export const t = {
           period: "USD / Month",
           desc: "...",
           popular: false,
-          paymentLink: "#",
+          paymentLink: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
           cta: "Get Started",
           features: [
             "Management of up to 2 social media platforms",
@@ -176,7 +176,7 @@ export const t = {
           period: "USD / Month",
           desc: "...",
           popular: true,
-          paymentLink: "#",
+          paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
           cta: "Get Started",
           features: [
             "Everything in Essential, plus:",
@@ -197,7 +197,7 @@ export const t = {
           period: "USD / Month",
           desc: "Texto de descripción aquí",
           popular: false,
-          paymentLink: "#",
+          paymentLink: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
           cta: "Get Started",
           features: [
             "Complete Social Media Management",
@@ -397,7 +397,7 @@ export const t = {
           period: "USD / Mes",
           desc: "Perfecto para negocios que buscan establecer una presencia en línea profesional y consistente.",
           popular: false,
-          paymentLink: "#contact",
+          paymentLink: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
           cta: "Comencemos",
           features: [
             "Gestión de hasta 2 plataformas de redes sociales",
@@ -417,7 +417,7 @@ export const t = {
           period: "USD / Mes",
           desc: "Ideal para negocios en crecimiento que quieren una presencia digital más sólida y mayor engagement.",
           popular: true,
-          paymentLink: "#contact",
+          paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
           cta: "Comencemos",
           features: [
             "Todo lo del plan Esencial, más:",
@@ -438,7 +438,7 @@ export const t = {
           period: "USD / Mes",
           desc: "Tu departamento creativo y de marketing externalizado al completo.",
           popular: false,
-          paymentLink: "#contact",
+          paymentLink: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
           cta: "comencemos",
           features: [
             "Gestión completa de redes sociales",
