@@ -287,13 +287,13 @@ export function Pricing() {
         <input className="border p-3" placeholder="Business Website (Optional)" />
         <textarea className="border p-3 min-h-[120px]" placeholder="Tell us about your project" />
       </div>
-      <a
-  href={selectedPlan?.paymentLink || "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00"}
+     <a
+  href="https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00"
   target="_blank"
   rel="noopener noreferrer"
   className="mt-6 w-full bg-[#643D70] text-white py-4 uppercase tracking-[0.2em] block text-center"
 >
- PAY WITH STRIPE TEST
+  PAY WITH STRIPE TEST
 </a>
     </div>
   </div>
