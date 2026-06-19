@@ -13,7 +13,11 @@ export function Pricing() {
 
   const scrollToContact = () =>
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-
+  const paymentLinks: Record<string, string> = {
+  Essential: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
+  Growth: "https://buy.stripe.com/aFaaEW8su5cLeQz7nagUM01",
+  Scale: "https://buy.stripe.com/14A6oGeQS5c1bEnDbqgUM02",
+};
   return (
     <section id="pricing" className="py-28 bg-[#E8E6E1]">
       <div
@@ -144,7 +148,7 @@ export function Pricing() {
                   {/* CTA */}
 <div className="flex flex-col gap-3 mt-auto">
 <button
-  onClick={() => setSelectedPlan(plan)}
+   onClick={() => setSelectedPlan(null)}
   className={`w-full py-4 flex items-center justify-center gap-2 transition-all duration-300 ${
     isPopular
       ? "bg-[#D4AF37] text-[#343434] hover:bg-white hover:text-[#643D70]"
@@ -275,7 +279,9 @@ export function Pricing() {
       <h3 className="text-3xl mb-2 text-[#343434]">
         {selectedPlan.name}
       </h3>
-
+<p className="text-red-500 text-xs">
+  {JSON.stringify(selectedPlan)}
+</p>
       <p className="text-[#343434]/70 mb-6">
         Tell us a little about your business before completing your purchase.
       </p>
@@ -287,13 +293,14 @@ export function Pricing() {
         <input className="border p-3" placeholder="Business Website (Optional)" />
         <textarea className="border p-3 min-h-[120px]" placeholder="Tell us about your project" />
       </div>
+      <p className="text-red-500 text-xs"> PLAN: {selectedPlan?.name} / LINK: {paymentLinks[selectedPlan?.name as keyof typeof paymentLinks]} </p>
      <a
-  href="https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00"
+  href={paymentLinks[selectedPlan?.name as keyof typeof paymentLinks]}
   target="_blank"
   rel="noopener noreferrer"
   className="mt-6 w-full bg-[#643D70] text-white py-4 uppercase tracking-[0.2em] block text-center"
 >
-  PAY WITH STRIPE TEST
+  Continue to Secure Payment
 </a>
     </div>
   </div>
