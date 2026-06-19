@@ -148,7 +148,8 @@ export function Pricing() {
                   {/* CTA */}
 <div className="flex flex-col gap-3 mt-auto">
 <button
-   onClick={() => setSelectedPlan(null)}
+  type="button"
+  onClick={() => setSelectedPlan(plan)}
   className={`w-full py-4 flex items-center justify-center gap-2 transition-all duration-300 ${
     isPopular
       ? "bg-[#D4AF37] text-[#343434] hover:bg-white hover:text-[#643D70]"
@@ -266,11 +267,12 @@ export function Pricing() {
   <div className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center px-6">
     <div className="bg-white max-w-xl w-full p-8 relative shadow-2xl">
       <button
-  
-        className="absolute top-4 right-4 text-[#643D70]"
-      >
-        ✕
-      </button>
+  type="button"
+  onClick={() => setSelectedPlan(null)}
+  className="absolute top-4 right-4 text-[#643D70]"
+>
+  ✕
+</button>
 
       <p className="text-[#643D70] uppercase tracking-[0.2em] text-xs mb-3">
         Start Your Project
@@ -279,9 +281,6 @@ export function Pricing() {
       <h3 className="text-3xl mb-2 text-[#343434]">
         {selectedPlan.name}
       </h3>
-<p className="text-red-500 text-xs">
-  {JSON.stringify(selectedPlan)}
-</p>
       <p className="text-[#343434]/70 mb-6">
         Tell us a little about your business before completing your purchase.
       </p>
@@ -293,7 +292,6 @@ export function Pricing() {
         <input className="border p-3" placeholder="Business Website (Optional)" />
         <textarea className="border p-3 min-h-[120px]" placeholder="Tell us about your project" />
       </div>
-      <p className="text-red-500 text-xs"> PLAN: {selectedPlan?.name} / LINK: {paymentLinks[selectedPlan?.name as keyof typeof paymentLinks]} </p>
      <a
   href={paymentLinks[selectedPlan?.name as keyof typeof paymentLinks]}
   target="_blank"
