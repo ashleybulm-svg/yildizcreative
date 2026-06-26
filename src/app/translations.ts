@@ -530,6 +530,10 @@ aiStudioSub:
 
 aiVideos: [
   {
+    title: "AI Video - individual",
+    price: "desde $95 USD",
+  },
+  {
     title: "AI Starter",
     price: "5 Videos – $450 USD",
     features: [
