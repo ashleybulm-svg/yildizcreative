@@ -15,8 +15,8 @@ export function Pricing() {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   const paymentLinks: Record<string, string> = {
   Essential: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
-  Growth: "https://buy.stripe.com/aFaaEW8su5cLeQz7nagUM01",
-  Scale: "https://buy.stripe.com/14A6oGeQS5c1bEnDbqgUM02",
+  Growth: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
+  Scale: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
 };
   return (
     <section id="pricing" className="py-28 bg-[#E8E6E1]">
