@@ -177,7 +177,83 @@ export function Pricing() {
             );
           })}
         </div>
+        {/* ── AI Video Studio ── */}
+<motion.div
+  initial={{ opacity: 0, y: 24 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.7, delay: 0.35 }}
+  className="mt-24 bg-[#1F1426] px-8 py-16"
+  style={{ borderRadius: "8px" }}
+>
+  <div className="text-center mb-12">
+    <div className="flex items-center justify-center gap-3 mb-5">
+      <div className="w-8 h-px bg-[#D4AF37]" />
+      <span
+        className="text-[#D4AF37] tracking-[0.2em] uppercase"
+        style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}
+      >
+        AI POWERED CONTENT
+      </span>
+      <div className="w-8 h-px bg-[#D4AF37]" />
+    </div>
 
+    <h3
+      className="text-white mb-4"
+      style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(30px, 4vw, 52px)", fontWeight: 400 }}
+    >
+      {tx.aiStudioHeading}
+    </h3>
+
+    <p
+      className="text-white/65 max-w-2xl mx-auto"
+      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", fontWeight: 300, lineHeight: 1.8 }}
+    >
+      {tx.aiStudioSub}
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    {tx.aiVideos.map((video, i) => (
+      <motion.div
+        key={video.title}
+        initial={{ opacity: 0, y: 18 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 0.4 + i * 0.06 }}
+        className="bg-white/8 border border-white/10 p-6 flex flex-col"
+        style={{ borderRadius: "6px" }}
+      >
+        <div className="w-8 h-0.5 bg-[#D4AF37] mb-5" />
+
+        <h4
+          className="text-white mb-2"
+          style={{ fontFamily: "'Playfair Display', serif", fontSize: "22px", fontWeight: 400 }}
+        >
+          {video.title}
+        </h4>
+
+        <p
+          className="text-[#D4AF37] mb-5"
+          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 500 }}
+        >
+          {video.price}
+        </p>
+
+        {"features" in video && video.features && (
+          <ul className="flex flex-col gap-2 mt-auto">
+            {video.features.map((feature: string, fi: number) => (
+              <li key={fi} className="flex items-start gap-2 text-white/70">
+                <Check size={13} className="text-[#D4AF37] mt-1 flex-shrink-0" />
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", lineHeight: 1.5 }}>
+                  {feature}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
         {/* ── Additional Services ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

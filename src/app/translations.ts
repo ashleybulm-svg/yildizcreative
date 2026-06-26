@@ -179,7 +179,6 @@ export const t = {
           paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
           cta: "Get Started",
           features: [
-            "Everything in Essential, plus:",
             "Up to 20 custom-designed posts",
             "4 professionally edited Reels",
             "Monthly content strategy",
@@ -227,6 +226,63 @@ export const t = {
         { title: "Corporate Merchandise Design", price: "Custom Quote" },
         { title: "Content Creation Day", price: "Custom Quote" },
       ],
+      aiStudioHeading: "AI Video Studio",
+
+aiStudioSub:
+  "Bring your ideas to life with cutting-edge AI video production designed to capture attention and elevate your brand.",
+
+aiVideos: [
+  {
+    title: "AI Video - Single",
+    price: "From $95 USD",
+  },
+  {
+    title: "AI Starter",
+  price: "5 Videos  $450 USD",
+  features: [
+    "5 AI videos (up to 30 sec)",
+    "AI voiceover included",
+    "Subtitles included",
+    "Commercial use",
+    "1 revision per video",
+  ],
+},
+{
+    title: "AI Growth",
+  price: "10 Videos – $800 USD",
+  features: [
+    "10 AI videos",
+    "AI voiceover included",
+    "Premium editing",
+    "Subtitles included",
+    "Commercial use",
+    "2 revisions",
+  ],
+},
+{
+    title: "AI Premium",
+  price: "20 Videos – Custom Quote",
+  features: [
+    "Ideal for agencies & large campaigns",
+    "Priority delivery",
+    "Advanced AI production",
+    "Custom scripts",
+    "Dedicated support",
+  ],
+},
+{
+    title: "Talking Avatar Video",
+    price: "From $150 USD",
+  },
+  {
+    title: "AI Commercial Video",
+    price: "From $250 USD",
+  },
+  {
+    title: "Medical AI Animation",
+    price: "Custom Quote",
+  },
+],
       customHeading: "Need Something Custom?",
       customSub: "Every business is unique. If you're looking for a tailored solution, we'd love to create a custom proposal designed specifically for your goals.",
       quoteButton: "Request a Custom Quote",
@@ -420,7 +476,6 @@ export const t = {
           paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
           cta: "Comencemos",
           features: [
-            "Todo lo del plan Esencial, más:",
             "Hasta 20 publicaciones diseñadas a medida",
             "4 Reels editados profesionalmente",
             "Estrategia de contenido mensual",
@@ -468,6 +523,64 @@ export const t = {
         { title: "Diseño de Merchandising Corporativo", price: "Cotización Personalizada" },
         { title: "Día de Creación de Contenido", price: "Cotización Personalizada" },
       ],
+      aiStudioHeading: "AI Video Studio",
+
+aiStudioSub:
+  "Da vida a tus ideas con videos creados con Inteligencia Artificial. Desde avatares parlantes hasta comerciales cinematográficos y animaciones educativas para llevar tu marca al siguiente nivel.",
+
+aiVideos: [
+  {
+    title: "AI Starter",
+    price: "5 Videos – $450 USD",
+    features: [
+      "5 videos con IA (hasta 30 segundos)",
+      "Narración con voz IA incluida",
+      "Subtítulos incluidos",
+      "Uso comercial",
+      "1 revisión por video",
+    ],
+  },
+
+  {
+    title: "AI Growth",
+    price: "10 Videos – $800 USD",
+    features: [
+      "10 videos con IA",
+      "Narración con voz IA",
+      "Edición premium",
+      "Subtítulos incluidos",
+      "Uso comercial",
+      "2 revisiones",
+    ],
+  },
+
+  {
+    title: "AI Premium",
+    price: "20 Videos – Cotización personalizada",
+    features: [
+      "Ideal para agencias y campañas grandes",
+      "Entrega prioritaria",
+      "Producción avanzada con IA",
+      "Guiones personalizados",
+      "Soporte dedicado",
+    ],
+  },
+
+  {
+    title: "Video con Avatar IA",
+    price: "Desde $150 USD",
+  },
+
+  {
+    title: "Comercial con IA",
+    price: "Desde $250 USD",
+  },
+
+  {
+    title: "Animación Médica con IA",
+    price: "Cotización personalizada",
+  },
+],
       customHeading: "¿Necesitas Algo Personalizado?",
       customSub: "Cada negocio es único. Si buscas una solución a medida, nos encantaría crear una propuesta personalizada diseñada específicamente para tus metas.",
       quoteButton: "Solicitar Cotización",
