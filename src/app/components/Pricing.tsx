@@ -18,6 +18,13 @@ export function Pricing() {
   Growth: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
   Scale: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
 };
+const aiPaymentLinks: Record<string, string> = {
+  "AI Single": "https://buy.stripe.com/4gM8wO5gi6gp0ZJbDqgUM07",
+  "AI Starter": "https://buy.stripe.com/00w6oG8su9sB7o70YMgUM06",
+  "AI Growth": "https://buy.stripe.com/14A4gy2469sBbEn6j6gUM08",
+  "Talking Avatar Video": "https://buy.stripe.com/6oU5kCdMOcEN0ZJfTGgUM09",
+  "AI Commercial Video": "https://buy.stripe.com/eVq5kCbEG48haAjcHugUM0a",
+};
   return (
     <section id="pricing" className="py-28 bg-[#E8E6E1]">
       <div
@@ -239,7 +246,7 @@ export function Pricing() {
         </p>
 
         {"features" in video && video.features && (
-          <ul className="flex flex-col gap-2 mt-auto">
+          <ul className="flex flex-col gap-2 mt-4">
             {video.features.map((feature: string, fi: number) => (
               <li key={fi} className="flex items-start gap-2 text-white/70">
                 <Check size={13} className="text-[#D4AF37] mt-1 flex-shrink-0" />
@@ -250,6 +257,15 @@ export function Pricing() {
             ))}
           </ul>
         )}
+        <a
+  href={aiPaymentLinks[video.title] || "#contact"}
+  target={aiPaymentLinks[video.title] ? "_blank" : "_self"}
+  rel="noopener noreferrer"
+  className="mt-auto w-full bg-[#D4AF37] text-[#343434] py-3 uppercase tracking-[0.15em] block text-center hover:bg-white transition-all duration-300"
+  style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, borderRadius: "3px" }}
+>
+  {aiPaymentLinks[video.title] ? "Order Now" : "Request Quote"}
+</a>
       </motion.div>
     ))}
   </div>
