@@ -25,6 +25,16 @@ const aiPaymentLinks: Record<string, string> = {
   "Talking Avatar Video": "https://buy.stripe.com/6oU5kCdMOcEN0ZJfTGgUM09",
   "AI Commercial Video": "https://buy.stripe.com/eVq5kCbEG48haAjcHugUM0a",
 };
+
+// Stripe links for À La Carte addons — replace "" with the actual link when available
+const addonPaymentLinks: Record<string, string> = {
+  "Brand Identity": "",
+  "Logo Design": "",
+  "Website Design": "",
+  "Landing Pages": "",
+  "Digital Invitations": "",
+  "Digital Advertising Management": "",
+};
   return (
     <section id="pricing" className="py-28 bg-[#E8E6E1]">
       <div
@@ -315,11 +325,42 @@ const aiPaymentLinks: Record<string, string> = {
                   {addon.title}
                 </div>
                 <div
-                  className="text-[#643D70]"
+                  className="text-[#643D70] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400 }}
                 >
                   {addon.price}
                 </div>
+                {addonPaymentLinks[addon.title] !== undefined ? (
+                  addonPaymentLinks[addon.title] ? (
+                    <a
+                      href={addonPaymentLinks[addon.title]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 bg-[#643D70] text-white text-center uppercase tracking-[0.15em] hover:bg-[#543060] transition-colors duration-300 block"
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, borderRadius: "3px" }}
+                    >
+                      Buy Now
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={scrollToContact}
+                      className="w-full py-2.5 border border-[#643D70]/40 text-[#643D70] uppercase tracking-[0.15em] hover:bg-[#643D70] hover:text-white transition-all duration-300"
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, borderRadius: "3px" }}
+                    >
+                      Get a Quote
+                    </button>
+                  )
+                ) : (
+                  <button
+                    type="button"
+                    onClick={scrollToContact}
+                    className="w-full py-2.5 border border-[#643D70]/40 text-[#643D70] uppercase tracking-[0.15em] hover:bg-[#643D70] hover:text-white transition-all duration-300"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, borderRadius: "3px" }}
+                  >
+                    Get a Quote
+                  </button>
+                )}
               </motion.div>
             ))}
           </div>

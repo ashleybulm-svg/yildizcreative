@@ -3,8 +3,6 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
-const BRANDING_IMAGE = "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=420&h=320&fit=crop&auto=format&q=80";
-
 export function Hero() {
   const { lang } = useLang();
   const tx = t[lang].hero;
@@ -138,31 +136,7 @@ export function Hero() {
                 aria-hidden="true"
               />
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.6 }}
-                className="absolute -bottom-8 -left-8 bg-white shadow-xl p-5 max-w-[180px]"
-                style={{ borderRadius: "3px" }}
-              >
-                <div className="w-5 h-0.5 bg-[#D4AF37] mb-3" />
-                <div className="text-[#343434]" style={{ fontFamily: "'Playfair Display', serif", fontSize: "14px", fontWeight: 500 }}>
-                  {tx.floatingCard}
-                </div>
-                <div className="text-[#343434]/50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 300 }}>
-                  {tx.floatingCardSub}
-                </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.75 }}
-                className="absolute -right-12 top-16 overflow-hidden shadow-lg hidden xl:block"
-                style={{ width: "160px", height: "120px", borderRadius: "3px" }}
-              >
-                <img src={BRANDING_IMAGE} alt="Branding color palette" className="w-full h-full object-cover" />
-              </motion.div>
             </div>
           </motion.div>
         </div>

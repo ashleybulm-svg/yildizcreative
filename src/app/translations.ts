@@ -59,7 +59,7 @@ export const t = {
       eyebrow: "Our Work",
       heading1: "Selected",
       heading2: "Projects",
-      categories: ["All", "Branding", "Social Media", "Web Design", "Content"],
+      categories: ["All", "Branding", "Social Media", "Web Design", "AI Video", "AI Ads"],
       projects: [
         { title: "Bloom & Co. Florals", result: "Professional brand positioning" },
         { title: "Soleil Wellness Studio", result: "Consistent Instagram growth" },
@@ -356,7 +356,7 @@ aiVideos: [
       eyebrow: "Nuestro Trabajo",
       heading1: "Proyectos",
       heading2: "Destacados",
-      categories: ["Todos", "Branding", "Redes Sociales", "Diseño Web", "Contenido"],
+      categories: ["Todos", "Branding", "Redes Sociales", "Diseño Web", "AI Video", "AI Ads"],
       projects: [
         { title: "Bloom & Co. Florals", result: "300% de aumento en reconocimiento de marca" },
         { title: "Soleil Wellness Studio", result: "12K seguidores en Instagram en 90 días" },
