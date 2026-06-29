@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Globe, Layout, ShoppingBag, Bot, Database, Code } from "lucide-react";
+
+const webTechIcons: Record<string, React.ElementType> = { Globe, Layout, ShoppingBag, Bot, Database, Code };
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
@@ -26,15 +28,6 @@ const aiPaymentLinks: Record<string, string> = {
   "AI Commercial Video": "https://buy.stripe.com/eVq5kCbEG48haAjcHugUM0a",
 };
 
-// Stripe links for À La Carte addons — replace "" with the actual link when available
-const addonPaymentLinks: Record<string, string> = {
-  "Brand Identity": "",
-  "Logo Design": "",
-  "Website Design": "",
-  "Landing Pages": "",
-  "Digital Invitations": "",
-  "Digital Advertising Management": "",
-};
   return (
     <section id="pricing" className="py-28 bg-[#E8E6E1]">
       <div
@@ -380,63 +373,86 @@ const addonPaymentLinks: Record<string, string> = {
           </div>
 
           {/* Service cards grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {tx.addons.map((addon, i) => (
               <motion.div
                 key={addon.title}
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.45 + i * 0.05 }}
-                className="bg-white p-6 flex flex-col group hover:shadow-md transition-shadow duration-300"
+                transition={{ duration: 0.45, delay: 0.45 + i * 0.1 }}
+                className="bg-white p-8 flex flex-col group hover:shadow-md transition-shadow duration-300"
                 style={{ borderRadius: "4px", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}
               >
-                <div className="w-6 h-0.5 bg-[#D4AF37] mb-4 transition-all duration-300 group-hover:w-10" />
-                <div
-                  className="text-[#343434] mb-3 flex-1"
-                  style={{ fontFamily: "'Playfair Display', serif", fontSize: "15px", fontWeight: 500, lineHeight: 1.3 }}
-                >
+                <div className="w-6 h-0.5 bg-[#D4AF37] mb-5 transition-all duration-300 group-hover:w-10" />
+                <div className="text-[#343434] mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "20px", fontWeight: 500, lineHeight: 1.3 }}>
                   {addon.title}
                 </div>
-                <div
-                  className="text-[#643D70] mb-4"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400 }}
-                >
+                <div className="text-[#643D70] mb-4" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "18px", fontWeight: 500 }}>
                   {addon.price}
                 </div>
-                {addonPaymentLinks[addon.title] !== undefined ? (
-                  addonPaymentLinks[addon.title] ? (
-                    <a
-                      href={addonPaymentLinks[addon.title]}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 bg-[#643D70] text-white text-center uppercase tracking-[0.15em] hover:bg-[#543060] transition-colors duration-300 block"
-                      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, borderRadius: "3px" }}
-                    >
-                      Buy Now
-                    </a>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={scrollToContact}
-                      className="w-full py-2.5 border border-[#643D70]/40 text-[#643D70] uppercase tracking-[0.15em] hover:bg-[#643D70] hover:text-white transition-all duration-300"
-                      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, borderRadius: "3px" }}
-                    >
-                      Get a Quote
-                    </button>
-                  )
-                ) : (
-                  <button
-                    type="button"
-                    onClick={scrollToContact}
-                    className="w-full py-2.5 border border-[#643D70]/40 text-[#643D70] uppercase tracking-[0.15em] hover:bg-[#643D70] hover:text-white transition-all duration-300"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, borderRadius: "3px" }}
-                  >
-                    Get a Quote
-                  </button>
-                )}
+                <p className="text-[#343434]/55 mb-6 flex-1" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.75 }}>
+                  {(addon as any).desc}
+                </p>
+                <a
+                  href={(addon as any).paymentLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 bg-[#643D70] text-white text-center uppercase tracking-[0.15em] hover:bg-[#543060] transition-colors duration-300 block"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, borderRadius: "3px" }}
+                >
+                  Buy Now
+                </a>
               </motion.div>
             ))}
           </div>
+
+          {/* ── Web & Tech Section ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.55 }}
+            className="mt-16 bg-[#1e1e1e] px-8 py-14"
+            style={{ borderRadius: "8px" }}
+          >
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-8 h-px bg-[#D4AF37]" />
+                <span className="text-[#D4AF37] tracking-[0.2em] uppercase" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}>
+                  {tx.webTechEyebrow}
+                </span>
+                <div className="w-8 h-px bg-[#D4AF37]" />
+              </div>
+              <h3 className="text-white mb-3" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 400 }}>
+                {tx.webTechHeading}
+              </h3>
+              <p className="text-white/55 max-w-xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.8 }}>
+                {tx.webTechSub}
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+              {tx.webTechServices.map((svc, i) => {
+                const Icon = webTechIcons[(svc as any).icon] || Globe;
+                return (
+                  <div key={i} className="flex items-center gap-3 bg-white/6 border border-white/10 px-5 py-4" style={{ borderRadius: "4px" }}>
+                    <Icon size={16} className="text-[#D4AF37] flex-shrink-0" />
+                    <span className="text-white/80" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 300 }}>
+                      {svc.title}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="text-center">
+              <button
+                onClick={scrollToContact}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300 cursor-pointer border-none group"
+                style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "3px" }}
+              >
+                {tx.webTechCta}
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
+          </motion.div>
 
           {/* Custom CTA */}
           <motion.div
