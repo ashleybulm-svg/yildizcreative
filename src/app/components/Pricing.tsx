@@ -194,6 +194,79 @@ const addonPaymentLinks: Record<string, string> = {
             );
           })}
         </div>
+        {/* ── Content Day ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-24"
+        >
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <div className="w-8 h-px bg-[#D4AF37]" />
+              <span className="text-[#643D70] tracking-[0.2em] uppercase" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}>
+                {tx.contentDayEyebrow}
+              </span>
+              <div className="w-8 h-px bg-[#D4AF37]" />
+            </div>
+            <h3 className="text-[#343434]" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 400 }}>
+              {tx.contentDayHeading}
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {tx.contentDayPlans.map((plan, i) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.35 + i * 0.1 }}
+                className="bg-white shadow-lg flex flex-col overflow-hidden"
+                style={{ borderRadius: "6px", boxShadow: "0 4px 24px rgba(100,61,112,0.10)" }}
+              >
+                <div className="bg-[#643D70] px-8 py-6">
+                  <div className="text-[#BCA9D0] tracking-[0.2em] uppercase mb-2" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}>
+                    {plan.location}
+                  </div>
+                  <div className="text-white" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 3vw, 38px)", fontWeight: 400 }}>
+                    {plan.price}
+                  </div>
+                  <div className="text-white/50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 300 }}>
+                    {plan.period}
+                  </div>
+                </div>
+
+                <div className="p-8 flex flex-col flex-1">
+                  <p className="text-[#343434]/60 mb-6" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.75 }}>
+                    {plan.desc}
+                  </p>
+                  <ul className="flex flex-col gap-3 mb-8 flex-1">
+                    {plan.features.map((feat, fi) => (
+                      <li key={fi} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 bg-[#643D70]/12">
+                          <Check size={9} className="text-[#643D70]" strokeWidth={2.5} />
+                        </div>
+                        <span className="text-[#343434]/65" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13.5px", fontWeight: 300, lineHeight: 1.5 }}>
+                          {feat}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={plan.paymentLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 bg-[#643D70] text-white flex items-center justify-center gap-2 hover:bg-[#543060] transition-all duration-300"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "3px" }}
+                  >
+                    Book Now <ArrowRight size={14} />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* ── AI Video Studio ── */}
 <motion.div
   initial={{ opacity: 0, y: 24 }}
