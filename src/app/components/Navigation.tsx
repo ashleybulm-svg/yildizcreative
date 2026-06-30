@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import logoSrc from "../../imports/logo-yildiz.png";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
@@ -24,7 +23,6 @@ export function Navigation() {
   };
 
   const navLinks = [
-    { label: tx.services, href: "#services" },
     { label: tx.work, href: "#portfolio" },
     { label: tx.pricing, href: "#pricing" },
     { label: tx.about, href: "#founder" },
@@ -53,7 +51,7 @@ export function Navigation() {
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           >
             <ImageWithFallback
-              src={logoSrc}
+              src="/logo-yildiz.png"
               alt="Yildiz Creative logo"
               className="h-30 w-auto object-contain"
             />
