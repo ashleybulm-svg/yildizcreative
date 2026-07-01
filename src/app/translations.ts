@@ -7,7 +7,7 @@ export const t = {
       about: "About",
       process: "Process",
       testimonials: "Testimonials",
-      contact: "Get a Quote",
+      contact: "View Portfolio",
       cta: "Request a Proposal",
     },
     hero: {
@@ -346,7 +346,7 @@ aiVideos: [
       about: "Sobre mí",
       process: "Proceso",
       testimonials: "Testimonios",
-      contact:  "Cotización",
+      contact: "Ver Portafolio",
       cta: "Solicitar Propuesta",
     },
     hero: {

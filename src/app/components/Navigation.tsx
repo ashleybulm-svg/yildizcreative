@@ -28,7 +28,7 @@ export function Navigation() {
     { label: tx.about, href: "#founder" },
     { label: tx.process, href: "#process" },
     { label: tx.testimonials, href: "#testimonials" },
-    { label: tx.contact, href: "#contact" },
+    { label: tx.contact, href: "#portfolio" },
   ];
 
   return (
