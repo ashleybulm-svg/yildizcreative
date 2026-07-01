@@ -59,10 +59,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              className="text-[#343434]/65 mb-12 max-w-[440px]"
+              className="text-[#343434]/65 mb-8 max-w-[440px]"
               style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "17px", fontWeight: 300, lineHeight: 1.8 }}
             >
               {tx.sub}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.28, ease: "easeOut" }}
+              className="text-[#643D70]/70 mb-8 max-w-[440px]"
+              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400, letterSpacing: "0.04em" }}
+            >
+              {(tx as any).trustLine}
             </motion.p>
 
             <motion.div
@@ -72,14 +82,14 @@ export function Hero() {
               className="flex flex-wrap gap-4"
             >
               <button
-                onClick={() => scrollTo("#contact")}
+                onClick={() => scrollTo("#portfolio")}
                 className="px-8 py-4 bg-[#643D70] text-white hover:bg-[#543060] transition-all duration-300 hover:shadow-lg cursor-pointer border-none"
                 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "2px" }}
               >
                 {tx.btnPrimary}
               </button>
               <button
-                onClick={() => scrollTo("#services")}
+                onClick={() => scrollTo("#pricing")}
                 className="px-8 py-4 border border-[#643D70] text-[#643D70] hover:bg-[#643D70]/5 transition-all duration-300 cursor-pointer bg-transparent"
                 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "2px" }}
               >

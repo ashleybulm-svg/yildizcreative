@@ -1,6 +1,7 @@
 import { LanguageProvider } from "./context/LanguageContext";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
+import { WorkShowcase } from "./components/WorkShowcase";
 import { Pricing } from "./components/Pricing";
 import { WhyUs } from "./components/WhyUs";
 import { Portfolio } from "./components/Portfolio";
@@ -17,6 +18,7 @@ export default function App() {
         <Navigation />
         <main>
           <Hero />
+          <WorkShowcase />
           <Pricing />
           <WhyUs />
           <Portfolio />
