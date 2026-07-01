@@ -79,7 +79,6 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="flex flex-wrap gap-4"
             >
               <button
                 onClick={() => scrollTo("#portfolio")}
@@ -87,13 +86,6 @@ export function Hero() {
                 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "2px" }}
               >
                 {tx.btnPrimary}
-              </button>
-              <button
-                onClick={() => scrollTo("#pricing")}
-                className="px-8 py-4 border border-[#643D70] text-[#643D70] hover:bg-[#643D70]/5 transition-all duration-300 cursor-pointer bg-transparent"
-                style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "2px" }}
-              >
-                {tx.btnSecondary}
               </button>
             </motion.div>
 
