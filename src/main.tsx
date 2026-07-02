@@ -1,5 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
+import { initGTM } from "./lib/gtm";
+
+initGTM();
 import App from "./app/App.tsx";
 import AIVideoProduction from "./app/pages/AIVideoProduction.tsx";
 import WebDevelopment from "./app/pages/WebDevelopment.tsx";
