@@ -57,6 +57,10 @@ export function Navigation() {
       label: lang === "es" ? "Producción de Video IA" : "AI Video Production",
       href: "/ai-video-production",
     },
+    {
+      label: lang === "es" ? "Desarrollo Web" : "Web Development",
+      href: "/web-development",
+    },
   ];
 
   return (
