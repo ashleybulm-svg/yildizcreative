@@ -61,6 +61,10 @@ export function Navigation() {
       label: lang === "es" ? "Desarrollo Web" : "Web Development",
       href: "/web-development",
     },
+    {
+      label: lang === "es" ? "Invitaciones Digitales" : "Digital Invitations",
+      href: "/digital-invitations",
+    },
   ];
 
   return (
