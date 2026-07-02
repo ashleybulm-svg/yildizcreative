@@ -5,6 +5,8 @@ import AIVideoProduction from "./app/pages/AIVideoProduction.tsx";
 import WebDevelopment from "./app/pages/WebDevelopment.tsx";
 import DigitalInvitations from "./app/pages/DigitalInvitations.tsx";
 import Branding from "./app/pages/Branding.tsx";
+import Blog from "./app/pages/Blog.tsx";
+import BlogPost from "./app/pages/BlogPost.tsx";
 import "./styles/index.css";
 
 createRoot(document.getElementById("root")!).render(
@@ -15,6 +17,8 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/web-development" element={<WebDevelopment />} />
       <Route path="/digital-invitations" element={<DigitalInvitations />} />
       <Route path="/branding" element={<Branding />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
     </Routes>
   </BrowserRouter>
 );

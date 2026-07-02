@@ -8,6 +8,7 @@ export const t = {
       process: "Process",
       testimonials: "Testimonials",
       contact: "View Portfolio",
+      blog: "Blog",
       cta: "Request a Proposal",
     },
     hero: {
@@ -347,6 +348,7 @@ aiVideos: [
       process: "Proceso",
       testimonials: "Testimonios",
       contact: "Ver Portafolio",
+      blog: "Blog",
       cta: "Solicitar Propuesta",
     },
     hero: {

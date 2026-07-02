@@ -50,6 +50,7 @@ export function Navigation() {
     { label: tx.process, href: "#process" },
     { label: tx.testimonials, href: "#testimonials" },
     { label: tx.contact, href: "#portfolio" },
+    { label: (tx as any).blog ?? "Blog", href: "/blog" },
   ];
 
   const serviceLinks = [
