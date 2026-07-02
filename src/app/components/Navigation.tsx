@@ -65,6 +65,10 @@ export function Navigation() {
       label: lang === "es" ? "Invitaciones Digitales" : "Digital Invitations",
       href: "/digital-invitations",
     },
+    {
+      label: lang === "es" ? "Branding" : "Branding",
+      href: "/branding",
+    },
   ];
 
   return (
