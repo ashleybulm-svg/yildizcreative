@@ -11,7 +11,8 @@ export interface PostMeta {
   date: string;
   slug: string;
   category: string;
-  image: string;
+  image?: string;
+  featuredImage?: string;
   readingTime?: string;
 }
 
@@ -47,7 +48,7 @@ function PostCard({ post, index, inView }: { post: PostMeta; index: number; inVi
       {/* Featured image */}
       <a href={`/blog/${post.slug}`} className="block overflow-hidden" style={{ aspectRatio: "16/9" }}>
         <img
-          src={post.image}
+          src={post.featuredImage ?? post.image ?? "/media1.jpeg"}
           alt={post.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />

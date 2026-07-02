@@ -7,7 +7,8 @@ declare module "*.mdx" {
     date: string;
     slug: string;
     category: string;
-    image: string;
+    image?: string;
+    featuredImage?: string;
     readingTime?: string;
   };
 

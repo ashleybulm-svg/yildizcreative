@@ -120,6 +120,7 @@ const mdxComponents = {
 
 const ctaByCategory: Record<string, string> = {
   "AI Video": "AI Video Production",
+  "AI Video Production": "AI Video Production",
   "Branding": "Branding",
   "Web Development": "Web Development",
   "Digital Invitations": "Digital Invitations",
@@ -245,7 +246,7 @@ function BlogPostContent() {
         >
           <div className="overflow-hidden" style={{ borderRadius: "4px", aspectRatio: "16/7" }}>
             <img
-              src={frontmatter.image}
+              src={frontmatter.featuredImage ?? frontmatter.image ?? "/media1.jpeg"}
               alt={frontmatter.title}
               className="w-full h-full object-cover"
             />
