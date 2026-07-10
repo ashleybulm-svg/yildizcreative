@@ -112,7 +112,7 @@ function PageContent() {
     document.title = "AI Video Production Services | Yildiz Creative Studio";
     metaDesc?.setAttribute(
       "content",
-      "Custom AI-generated video content for brands and clinics. Fast turnaround, professional editing, ready for social media and marketing."
+      "Custom AI-generated video ads for brands and clinics. Fast turnaround, professional editing, ready for social media. Request your free quote."
     );
 
     return () => {
