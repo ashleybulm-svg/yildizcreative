@@ -15,7 +15,6 @@ export function Footer() {
     { label: tx.nav.work, href: "#portfolio" },
     { label: tx.nav.about, href: "#founder" },
     { label: tx.nav.process, href: "#process" },
-    { label: tx.nav.testimonials, href: "#testimonials" },
     { label: tx.nav.contact, href: "#contact" },
   ];
 

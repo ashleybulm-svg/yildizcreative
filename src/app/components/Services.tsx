@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { Palette, Share2, FileText, Sparkles, Globe, Megaphone, Mail, Gift } from "lucide-react";
+import { Sparkles, Globe, Megaphone, Palette, Mail, Share2 } from "lucide-react";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
-const icons = [Palette, Share2, FileText, Sparkles, Globe, Megaphone, Mail, Gift];
-const numbers = ["01","02","03","04","05","06","07","08"];
+const icons = [Sparkles, Globe, Megaphone, Palette, Mail, Share2];
+const numbers = ["01","02","03","04","05","06"];
 
 export function Services() {
   const ref = useRef(null);
