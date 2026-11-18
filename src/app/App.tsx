@@ -7,7 +7,7 @@ import { WhyUs } from "./components/WhyUs";
 import { Portfolio } from "./components/Portfolio";
 import { Founder } from "./components/Founder";
 import { Process } from "./components/Process";
-import { Testimonials } from "./components/Testimonials";
+import { Services } from "./components/Services";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -19,12 +19,12 @@ export default function App() {
         <main>
           <Hero />
           <WorkShowcase />
+          <Services />
           <Pricing />
           <WhyUs />
           <Portfolio />
           <Founder />
           <Process />
-          <Testimonials />
           <Contact />
         </main>
         <Footer />
