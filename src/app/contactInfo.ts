@@ -2,6 +2,7 @@
 export const CONTACT_EMAIL = "yesseyildiz@gmail.com";
 export const WHATSAPP_NUMBER = "526642702114"; // international format, digits only
 export const WHATSAPP_DISPLAY = "+52 664 270 2114";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/yessenia-melo/";
 export const INSTAGRAM_URL = "https://www.instagram.com/yildizcreativestudio/";
 
 export const waLink = (text?: string) =>
