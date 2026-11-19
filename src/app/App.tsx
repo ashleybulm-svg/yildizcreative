@@ -8,6 +8,7 @@ import { Portfolio } from "./components/Portfolio";
 import { Founder } from "./components/Founder";
 import { Process } from "./components/Process";
 import { Services } from "./components/Services";
+import { Testimonials } from "./components/Testimonials";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -25,6 +26,7 @@ export default function App() {
           <Portfolio />
           <Founder />
           <Process />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />

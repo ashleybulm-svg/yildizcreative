@@ -13,21 +13,23 @@ const brandingSlides = [
   { image: "/candles-thankyou.jpg.png",  title: "Candles For You",            result: "Brand collateral & thank you card design" },
 ];
 
-function BrandingCarousel() {
+type Slide = { image: string; title: string; result: string; url?: string };
+
+function BrandingCarousel({ slides = brandingSlides as Slide[], label = "Branding" }: { slides?: Slide[]; label?: string }) {
   const [current, setCurrent] = useState(0);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     if (hovered) return;
     const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % brandingSlides.length);
+      setCurrent((c) => (c + 1) % slides.length);
     }, 3000);
     return () => clearInterval(timer);
   }, [hovered]);
 
-  const prev = () => setCurrent((c) => (c - 1 + brandingSlides.length) % brandingSlides.length);
-  const next = () => setCurrent((c) => (c + 1) % brandingSlides.length);
-  const slide = brandingSlides[current];
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const slide = slides[current];
 
   return (
     <div
@@ -37,7 +39,7 @@ function BrandingCarousel() {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="relative overflow-hidden" style={{ aspectRatio: "3/2" }}>
-        {brandingSlides.map((s, i) => (
+        {slides.map((s, i) => (
           <img
             key={s.image}
             src={s.image}
@@ -68,7 +70,7 @@ function BrandingCarousel() {
 
         {/* Dots */}
         <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-20">
-          {brandingSlides.map((_, i) => (
+          {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
@@ -91,19 +93,33 @@ function BrandingCarousel() {
           </div>
           <div className="mt-1.5">
             <span className="text-[#643D70]/60" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px" }}>
-              Branding · {current + 1}/{brandingSlides.length}
+              {label} · {current + 1}/{slides.length}
             </span>
           </div>
         </div>
-        <div className="w-8 h-8 rounded-full border border-[#643D70]/20 flex items-center justify-center">
+        <a
+          href={slide.url ?? undefined}
+          target={slide.url ? "_blank" : undefined}
+          rel="noopener noreferrer"
+          aria-label={slide.url ? `Visit ${slide.title}` : undefined}
+          onClick={(e) => { if (!slide.url) e.preventDefault(); }}
+          className="w-8 h-8 rounded-full border border-[#643D70]/20 flex items-center justify-center"
+        >
           <svg width="10" height="10" viewBox="0 0 10 10" className="text-[#343434]/40" fill="none">
             <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   );
 }
+
+const webSlides: Slide[] = [
+  { image: "/portfolio/web-san-agustin.jpg", title: "San Agustin Care Home", result: "Bilingual website · Senior care, Houston TX", url: "https://sanagustincarehome.com/" },
+  { image: "/portfolio/web-pbm.jpg",         title: "PBM Hospital",          result: "Medical center website · Tijuana",           url: "https://pbmhospital.mx/" },
+  { image: "/portfolio/web-texanitas.jpg",   title: "Texanitas Big Tortas",  result: "Restaurant website · Houston TX",            url: "https://texanitasbigtortastx.com/" },
+  { image: "/portfolio/web-goofy-gold.jpg",  title: "Goofy Gold LLC",        result: "Trilingual landing page · Trucking & logistics" },
+];
 
 const socialMediaSlides = [
   { image: "/media1.jpeg", title: "Social Media", result: "Content design & strategy" },
@@ -264,6 +280,7 @@ function VideoCarousel() {
 const portfolioCards = [
   { id: 1,   type: "carousel",        tag1: "Branding"      },
   { id: 2,   type: "socialCarousel",  tag1: "Social Media"  },
+  { id: 3,   type: "webCarousel",     tag1: "Web Design"    },
   { id: 100, type: "video", video: "/invitacion.mp4", title: "Digital Invitation", result: "Animated digital invitation",  tag1: "AI Video" },
   { id: 101, type: "video", video: "/AI video.mp4",   title: "AI Video",           result: "AI-powered video production", tag1: "AI Video" },
   { id: 200, type: "videoCarousel",   tag1: "AI Ads"        },
@@ -345,6 +362,8 @@ export function Portfolio() {
             >
               {card.type === "carousel" ? (
                 <BrandingCarousel />
+              ) : card.type === "webCarousel" ? (
+                <BrandingCarousel slides={webSlides} label="Web Design" />
               ) : card.type === "socialCarousel" ? (
                 <SocialMediaCarousel />
               ) : card.type === "videoCarousel" ? (
