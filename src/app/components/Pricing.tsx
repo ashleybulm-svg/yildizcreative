@@ -23,10 +23,10 @@ export function Pricing() {
   };
   const aiPaymentLinks: Record<string, string> = {
     single: "https://buy.stripe.com/4gM8wO5gi6gp0ZJbDqgUM07",
-    // starter: pending new Stripe link at $399
+    starter: "https://buy.stripe.com/eVq5kCaAC48h7o79vigUM0d",
     growth: "https://buy.stripe.com/14A4gy2469sBbEn6j6gUM08",
     avatar: "https://buy.stripe.com/6oU5kCdMOcEN0ZJfTGgUM09",
-    // spot: pending new Stripe link at $400
+    spot: "https://buy.stripe.com/00w28qfUWfQZeQzbDqgUM0e",
   };
 
   return (

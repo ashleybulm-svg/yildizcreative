@@ -252,7 +252,7 @@ export const t = {
       addonsEyebrow: "À La Carte",
       addonsHeading: "Creative Services",
       addons: [
-        { title: "Brand Identity", price: "$850 USD", desc: "Build a memorable and professional brand identity that reflects your business. Includes your custom logo, brand strategy, color palette, typography, visual direction, and essential brand guidelines for a cohesive brand presence." },
+        { title: "Brand Identity", price: "$850 USD", desc: "Build a memorable and professional brand identity that reflects your business. Includes your custom logo, brand strategy, color palette, typography, visual direction, and essential brand guidelines for a cohesive brand presence.", paymentLink: "https://buy.stripe.com/cNi3cuaACcENeQzePCgUM0f" },
         { title: "Logo Design", price: "$350 USD", desc: "A custom logo designed to represent your brand with a modern, timeless, and professional identity. Includes primary logo, alternate versions, and files ready for print and digital use.", paymentLink: "https://buy.stripe.com/6oUaEW1029sB7o7fTGgUM0c" },
       ],
       webTechEyebrow: "Development & Technology",
@@ -603,7 +603,7 @@ aiVideos: [
       addonsEyebrow: "À La Carte",
       addonsHeading: "Servicios Creativos",
       addons: [
-        { title: "Identidad de Marca", price: "$850 USD", desc: "Construye una identidad de marca memorable y profesional que refleje tu negocio. Incluye tu logo personalizado, estrategia de marca, paleta de colores, tipografía, dirección visual y lineamientos de marca esenciales." },
+        { title: "Identidad de Marca", price: "$850 USD", desc: "Construye una identidad de marca memorable y profesional que refleje tu negocio. Incluye tu logo personalizado, estrategia de marca, paleta de colores, tipografía, dirección visual y lineamientos de marca esenciales.", paymentLink: "https://buy.stripe.com/cNi3cuaACcENeQzePCgUM0f" },
         { title: "Diseño de Logo", price: "$350 USD", desc: "Un logo personalizado diseñado para representar tu marca con una identidad moderna, atemporal y profesional. Incluye logo principal, versiones alternas y archivos listos para impresión y uso digital.", paymentLink: "https://buy.stripe.com/6oUaEW1029sB7o7fTGgUM0c" },
       ],
       webTechEyebrow: "Desarrollo y Tecnología",
