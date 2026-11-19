@@ -22,11 +22,11 @@ export function Pricing() {
     Scale: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
   };
   const aiPaymentLinks: Record<string, string> = {
-    "AI Single": "https://buy.stripe.com/4gM8wO5gi6gp0ZJbDqgUM07",
-    "AI Starter": "https://buy.stripe.com/00w6oG8su9sB7o70YMgUM06",
-    "AI Growth": "https://buy.stripe.com/14A4gy2469sBbEn6j6gUM08",
-    "Talking Avatar Video": "https://buy.stripe.com/6oU5kCdMOcEN0ZJfTGgUM09",
-    "AI Commercial Video": "https://buy.stripe.com/eVq5kCbEG48haAjcHugUM0a",
+    single: "https://buy.stripe.com/4gM8wO5gi6gp0ZJbDqgUM07",
+    starter: "https://buy.stripe.com/00w6oG8su9sB7o70YMgUM06",
+    growth: "https://buy.stripe.com/14A4gy2469sBbEn6j6gUM08",
+    avatar: "https://buy.stripe.com/6oU5kCdMOcEN0ZJfTGgUM09",
+    spot: "https://buy.stripe.com/eVq5kCbEG48haAjcHugUM0a",
   };
 
   return (
@@ -133,16 +133,97 @@ export function Pricing() {
                   </ul>
                 )}
                 <a
-                  href={aiPaymentLinks[video.title] || "#contact"}
-                  target={aiPaymentLinks[video.title] ? "_blank" : "_self"}
+                  href={aiPaymentLinks[(video as any).key] || "#contact"}
+                  target={aiPaymentLinks[(video as any).key] ? "_blank" : "_self"}
                   rel="noopener noreferrer"
                   className="mt-auto w-full bg-[#D4AF37] text-[#343434] py-3 uppercase tracking-[0.15em] block text-center hover:bg-white transition-all duration-300"
                   style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, borderRadius: "3px" }}
                 >
-                  {aiPaymentLinks[video.title] ? "Order Now" : "Request Quote"}
+                  {aiPaymentLinks[(video as any).key] ? (lang === "es" ? "Ordenar" : "Order Now") : (lang === "es" ? "Cotizar" : "Request Quote")}
                 </a>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* ── 3. Development & Technology ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-16 bg-[#1e1e1e] px-8 py-14"
+          style={{ borderRadius: "8px" }}
+        >
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-px bg-[#D4AF37]" />
+              <span className="text-[#D4AF37] tracking-[0.2em] uppercase" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}>
+                {tx.webTechEyebrow}
+              </span>
+              <div className="w-8 h-px bg-[#D4AF37]" />
+            </div>
+            <h3 className="text-white mb-3" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 400 }}>
+              {tx.webTechHeading}
+            </h3>
+            <p className="text-white/55 max-w-xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.8 }}>
+              {tx.webTechSub}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {tx.webTechServices.map((svc, i) => {
+              const Icon = webTechIcons[(svc as any).icon] || Globe;
+              return (
+                <div key={i} className="flex items-center gap-3 bg-white/6 border border-white/10 px-5 py-4" style={{ borderRadius: "4px" }}>
+                  <Icon size={16} className="text-[#D4AF37] flex-shrink-0" />
+                  <span className="text-white/80" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 300 }}>
+                    {svc.title}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {tx.webPackages.map((pkg, i) => {
+              const msg = `${tx.webQuoteMessage} ${pkg.title}.`;
+              const wa = `https://wa.me/526642702114?text=${encodeURIComponent(msg)}`;
+              const mail = `mailto:creativestudio.ym@gmail.com?subject=${encodeURIComponent(`${pkg.title} — Quote`)}&body=${encodeURIComponent(msg)}`;
+              return (
+                <div key={i} className="flex flex-col bg-white/6 border border-[#D4AF37]/30 p-8" style={{ borderRadius: "6px" }}>
+                  <h4 className="text-white mb-1" style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", fontWeight: 400 }}>{pkg.title}</h4>
+                  <div className="text-[#D4AF37] mb-4" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "20px", fontWeight: 500 }}>{pkg.price}</div>
+                  <p className="text-white/60 mb-5" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.7 }}>{pkg.desc}</p>
+                  <ul className="space-y-2 mb-7 flex-1">
+                    {pkg.features.map((f, j) => (
+                      <li key={j} className="flex items-start gap-2 text-white/80" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 300 }}>
+                        <Check size={14} className="text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a href={wa} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "3px" }}>
+                      <MessageCircle size={14} /> {tx.webQuoteWhatsApp}
+                    </a>
+                    <a href={mail} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 border border-white/30 text-white hover:bg-white hover:text-[#343434] transition-all duration-300" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "3px" }}>
+                      <Mail size={14} /> {tx.webQuoteEmail}
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-white/45 text-center mb-10 max-w-2xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 300, lineHeight: 1.7 }}>
+            {tx.webPackagesNote}
+          </p>
+          <div className="text-center">
+            <button
+              onClick={scrollToContact}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300 cursor-pointer border-none group"
+              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "3px" }}
+            >
+              {tx.webTechCta}
+              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
           </div>
         </motion.div>
 
@@ -203,87 +284,6 @@ export function Pricing() {
                 </a>
               </motion.div>
             ))}
-          </div>
-        </motion.div>
-
-        {/* ── 3. Development & Technology ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-16 bg-[#1e1e1e] px-8 py-14"
-          style={{ borderRadius: "8px" }}
-        >
-          <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#D4AF37]" />
-              <span className="text-[#D4AF37] tracking-[0.2em] uppercase" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500 }}>
-                {tx.webTechEyebrow}
-              </span>
-              <div className="w-8 h-px bg-[#D4AF37]" />
-            </div>
-            <h3 className="text-white mb-3" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 400 }}>
-              {tx.webTechHeading}
-            </h3>
-            <p className="text-white/55 max-w-xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.8 }}>
-              {tx.webTechSub}
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-            {tx.webTechServices.map((svc, i) => {
-              const Icon = webTechIcons[(svc as any).icon] || Globe;
-              return (
-                <div key={i} className="flex items-center gap-3 bg-white/6 border border-white/10 px-5 py-4" style={{ borderRadius: "4px" }}>
-                  <Icon size={16} className="text-[#D4AF37] flex-shrink-0" />
-                  <span className="text-white/80" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 300 }}>
-                    {svc.title}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            {tx.webPackages.map((pkg, i) => {
-              const msg = `${tx.webQuoteMessage} ${pkg.title}.`;
-              const wa = `https://wa.me/526642702114?text=${encodeURIComponent(msg)}`;
-              const mail = `mailto:creativestudio.ym@gmail.com?subject=${encodeURIComponent(`${pkg.title} — Quote`)}&body=${encodeURIComponent(msg)}`;
-              return (
-                <div key={i} className="flex flex-col bg-white/6 border border-[#D4AF37]/30 p-8" style={{ borderRadius: "6px" }}>
-                  <h4 className="text-white mb-1" style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", fontWeight: 400 }}>{pkg.title}</h4>
-                  <div className="text-[#D4AF37] mb-4" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "20px", fontWeight: 500 }}>{pkg.price}</div>
-                  <p className="text-white/60 mb-5" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.7 }}>{pkg.desc}</p>
-                  <ul className="space-y-2 mb-7 flex-1">
-                    {pkg.features.map((f, j) => (
-                      <li key={j} className="flex items-start gap-2 text-white/80" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 300 }}>
-                        <Check size={14} className="text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a href={wa} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "3px" }}>
-                      <MessageCircle size={14} /> {tx.webQuoteWhatsApp}
-                    </a>
-                    <a href={mail} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 border border-white/30 text-white hover:bg-white hover:text-[#343434] transition-all duration-300" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "3px" }}>
-                      <Mail size={14} /> {tx.webQuoteEmail}
-                    </a>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <p className="text-white/45 text-center mb-10 max-w-2xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 300, lineHeight: 1.7 }}>
-            {tx.webPackagesNote}
-          </p>
-          <div className="text-center">
-            <button
-              onClick={scrollToContact}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300 cursor-pointer border-none group"
-              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "3px" }}
-            >
-              {tx.webTechCta}
-              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
           </div>
         </motion.div>
 
