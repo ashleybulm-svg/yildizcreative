@@ -17,19 +17,39 @@ export function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      form.business ? `Business: ${form.business}` : "",
-      form.service ? `Service: ${form.service}` : "",
-      "",
-      form.message,
-    ].filter((l, i) => l !== "" || i === 4).join("\n");
-    window.location.href = mailLink(`Website inquiry — ${form.name}`, body);
-    setSubmitted(true);
+    setSending(true);
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Nuevo mensaje desde la web — ${form.name}`,
+          _template: "table",
+          _captcha: "false",
+          _replyto: form.email,
+          Nombre: form.name,
+          Email: form.email,
+          Negocio: form.business,
+          Servicio: form.service,
+          Mensaje: form.message,
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setSubmitted(true);
+    } catch {
+      // Fallback: open the visitor's email app with the message pre-filled
+      const body = [`Name: ${form.name}`, `Email: ${form.email}`, `Business: ${form.business}`, `Service: ${form.service}`, "", form.message].join("\n");
+      window.location.href = mailLink(`Website inquiry — ${form.name}`, body);
+      setSubmitted(true);
+    } finally {
+      setSending(false);
+    }
   };
+
 
   return (
     <section id="contact" className="py-28 bg-[#343434]" ref={ref}>
@@ -177,10 +197,10 @@ export function Contact() {
                     style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, borderRadius: "2px" }} />
                 </div>
 
-                <button type="submit"
-                  className="mt-2 px-8 py-4 bg-[#643D70] text-white hover:bg-[#D4AF37] hover:text-[#343434] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer border-none"
+                <button type="submit" disabled={sending}
+                  className="mt-2 disabled:opacity-60 px-8 py-4 bg-[#643D70] text-white hover:bg-[#D4AF37] hover:text-[#343434] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer border-none"
                   style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "2px" }}>
-                  {tx.submitBtn}
+                  {sending ? (lang === "es" ? "Enviando…" : "Sending…") : tx.submitBtn}
                   <Send size={14} />
                 </button>
               </form>
