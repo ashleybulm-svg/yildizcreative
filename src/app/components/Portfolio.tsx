@@ -208,6 +208,7 @@ function SocialMediaCarousel() {
 }
 
 const comercialSlides = [
+  { video: "/portfolio/alexander-cosmetics-spot.mp4", title: "Alexander Cosmetics", result: "AI commercial spot" },
   { video: "/comercial IA.mp4",   title: "AI Commercial",   result: "AI-produced brand commercial" },
   { video: "/comercial IA 2.mp4", title: "AI Commercial 2", result: "AI-produced brand commercial" },
 ];
