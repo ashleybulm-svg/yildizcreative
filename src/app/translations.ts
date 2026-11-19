@@ -154,7 +154,7 @@ export const t = {
           name: "Essential",
           price: "$497",
           period: "USD / Month",
-          desc: "...",
+          desc: "Perfect for businesses looking to build a professional, consistent online presence.",
           popular: false,
           paymentLink: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
           cta: "Get Started",
@@ -174,7 +174,7 @@ export const t = {
           name: "Growth",
           price: "$897",
           period: "USD / Month",
-          desc: "...",
+          desc: "Ideal for growing businesses that want a stronger digital presence and more engagement.",
           popular: true,
           paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
           cta: "Get Started",
@@ -194,7 +194,7 @@ export const t = {
           name: "Scale",
           price: "From $1,497",
           period: "USD / Month",
-          desc: "Texto de descripción aquí",
+          desc: "Your complete outsourced creative and marketing department.",
           popular: false,
           paymentLink: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
           cta: "Get Started",
@@ -256,15 +256,13 @@ export const t = {
         { title: "Logo Design", price: "$350 USD", desc: "A custom logo designed to represent your brand with a modern, timeless, and professional identity. Includes primary logo, alternate versions, and files ready for print and digital use.", paymentLink: "https://buy.stripe.com/6oUaEW1029sB7o7fTGgUM0c" },
       ],
       webTechEyebrow: "Development & Technology",
-      webTechHeading: "Web, Software & Automation",
-      webTechSub: "Custom technology solutions tailored to your business. Every project is unique — tell us what you need and we'll build it for you.",
+      webTechHeading: "Websites & Landing Pages",
+      webTechSub: "Websites, landing pages, online stores, and AI chatbots built for your business. Every project is unique — tell us what you need.",
       webTechServices: [
         { title: "Website Design & Development", icon: "Globe" },
         { title: "Landing Pages", icon: "Layout" },
         { title: "E-Commerce Stores", icon: "ShoppingBag" },
         { title: "AI Chatbots", icon: "Bot" },
-        { title: "CRM Integration", icon: "Database" },
-        { title: "Custom Software", icon: "Code" },
       ],
       webTechCta: "Tell Us What You Need",
       webPackages: [
@@ -282,10 +280,22 @@ aiStudioSub:
 
 aiVideos: [
   {
+    key: "single",
     title: "AI Video - Single",
     price: "From $95 USD",
   },
   {
+    key: "spot",
+    title: "AI Commercial Spot",
+    price: "From $250 USD",
+  },
+  {
+    key: "avatar",
+    title: "Talking Avatar Video",
+    price: "From $150 USD",
+  },
+  {
+    key: "starter",
     title: "AI Starter",
   price: "5 Videos  $450 USD",
   features: [
@@ -296,7 +306,8 @@ aiVideos: [
     "1 revision per video",
   ],
 },
-{
+  {
+    key: "growth",
     title: "AI Growth",
   price: "10 Videos – $800 USD",
   features: [
@@ -308,7 +319,8 @@ aiVideos: [
     "2 revisions",
   ],
 },
-{
+  {
+    key: "premium",
     title: "AI Premium",
   price: "20 Videos – Custom Quote",
   features: [
@@ -319,15 +331,8 @@ aiVideos: [
     "Dedicated support",
   ],
 },
-{
-    title: "Talking Avatar Video",
-    price: "From $150 USD",
-  },
   {
-    title: "AI Commercial Video",
-    price: "From $250 USD",
-  },
-  {
+    key: "medical",
     title: "Medical AI Animation",
     price: "Custom Quote",
   },
@@ -602,15 +607,13 @@ aiVideos: [
         { title: "Diseño de Logo", price: "$350 USD", desc: "Un logo personalizado diseñado para representar tu marca con una identidad moderna, atemporal y profesional. Incluye logo principal, versiones alternas y archivos listos para impresión y uso digital.", paymentLink: "https://buy.stripe.com/6oUaEW1029sB7o7fTGgUM0c" },
       ],
       webTechEyebrow: "Desarrollo y Tecnología",
-      webTechHeading: "Web, Software y Automatización",
-      webTechSub: "Soluciones tecnológicas personalizadas para tu negocio. Cada proyecto es único — cuéntanos qué necesitas y lo construimos para ti.",
+      webTechHeading: "Sitios Web y Landing Pages",
+      webTechSub: "Sitios web, landing pages, tiendas en línea y chatbots con IA hechos para tu negocio. Cada proyecto es único — cuéntanos qué necesitas.",
       webTechServices: [
         { title: "Diseño y Desarrollo Web", icon: "Globe" },
         { title: "Landing Pages", icon: "Layout" },
         { title: "Tiendas E-Commerce", icon: "ShoppingBag" },
         { title: "Chatbots con IA", icon: "Bot" },
-        { title: "Integración CRM", icon: "Database" },
-        { title: "Software Personalizado", icon: "Code" },
       ],
       webTechCta: "Cuéntanos lo que Necesitas",
       webPackages: [
@@ -628,10 +631,22 @@ aiStudioSub:
 
 aiVideos: [
   {
+    key: "single",
     title: "AI Video - individual",
     price: "desde $95 USD",
   },
   {
+    key: "spot",
+    title: "Spot Publicitario con IA",
+    price: "Desde $250 USD",
+  },
+  {
+    key: "avatar",
+    title: "Video con Avatar IA",
+    price: "Desde $150 USD",
+  },
+  {
+    key: "starter",
     title: "AI Starter",
     price: "5 Videos – $450 USD",
     features: [
@@ -642,8 +657,8 @@ aiVideos: [
       "1 revisión por video",
     ],
   },
-
   {
+    key: "growth",
     title: "AI Growth",
     price: "10 Videos – $800 USD",
     features: [
@@ -655,8 +670,8 @@ aiVideos: [
       "2 revisiones",
     ],
   },
-
   {
+    key: "premium",
     title: "AI Premium",
     price: "20 Videos – Cotización personalizada",
     features: [
@@ -667,18 +682,8 @@ aiVideos: [
       "Soporte dedicado",
     ],
   },
-
   {
-    title: "Video con Avatar IA",
-    price: "Desde $150 USD",
-  },
-
-  {
-    title: "Comercial con IA",
-    price: "Desde $250 USD",
-  },
-
-  {
+    key: "medical",
     title: "Animación Médica con IA",
     price: "Cotización personalizada",
   },
