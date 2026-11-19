@@ -152,8 +152,8 @@ export const t = {
       plans: [
         {
           name: "Essential",
-          price: "$497",
-          period: "USD / Month",
+          price: "Custom Quote",
+          period: "Based on your business & scope",
           desc: "Perfect for businesses looking to build a professional, consistent online presence.",
           popular: false,
           paymentLink: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
@@ -172,8 +172,8 @@ export const t = {
         },
         {
           name: "Growth",
-          price: "$897",
-          period: "USD / Month",
+          price: "Custom Quote",
+          period: "Based on your business & scope",
           desc: "Ideal for growing businesses that want a stronger digital presence and more engagement.",
           popular: true,
           paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
@@ -192,8 +192,8 @@ export const t = {
         },
         {
           name: "Scale",
-          price: "From $1,497",
-          period: "USD / Month",
+          price: "Custom Quote",
+          period: "Based on your business & scope",
           desc: "Your complete outsourced creative and marketing department.",
           popular: false,
           paymentLink: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
@@ -219,7 +219,7 @@ export const t = {
         {
           name: "Content Day — USA",
           price: "$500",
-          period: "USD / One-Time",
+          period: "USD + travel expenses",
           location: "Anywhere in the USA",
           desc: "A premium on-site content production experience designed for businesses, brands, and professionals across the United States. We travel to your location to capture high-quality photos and videos that elevate your online presence and provide weeks of ready-to-publish content.",
           paymentLink: "https://buy.stripe.com/cNi4gyaAC5clbEn7nagUM04",
@@ -252,7 +252,7 @@ export const t = {
       addonsEyebrow: "À La Carte",
       addonsHeading: "Creative Services",
       addons: [
-        { title: "Brand Identity", price: "$600 USD", desc: "Build a memorable and professional brand identity that reflects your business. Includes brand strategy, color palette, typography, visual direction, and essential brand guidelines for a cohesive brand presence.", paymentLink: "https://buy.stripe.com/28E14mgZ034dfUD5f2gUM0b" },
+        { title: "Brand Identity", price: "$850 USD", desc: "Build a memorable and professional brand identity that reflects your business. Includes your custom logo, brand strategy, color palette, typography, visual direction, and essential brand guidelines for a cohesive brand presence." },
         { title: "Logo Design", price: "$350 USD", desc: "A custom logo designed to represent your brand with a modern, timeless, and professional identity. Includes primary logo, alternate versions, and files ready for print and digital use.", paymentLink: "https://buy.stripe.com/6oUaEW1029sB7o7fTGgUM0c" },
       ],
       webTechEyebrow: "Development & Technology",
@@ -287,7 +287,7 @@ aiVideos: [
   {
     key: "spot",
     title: "AI Commercial Spot",
-    price: "From $250 USD",
+    price: "From $400 USD",
   },
   {
     key: "avatar",
@@ -297,7 +297,7 @@ aiVideos: [
   {
     key: "starter",
     title: "AI Starter",
-  price: "5 Videos  $450 USD",
+  price: "5 Videos – $399 USD",
   features: [
     "5 AI videos (up to 30 sec)",
     "AI voiceover included",
@@ -503,8 +503,8 @@ aiVideos: [
       plans: [
         {
           name: "Esencial",
-          price: "$497",
-          period: "USD / Mes",
+          price: "A Cotizar",
+          period: "Según tu negocio y alcance",
           desc: "Perfecto para negocios que buscan establecer una presencia en línea profesional y consistente.",
           popular: false,
           paymentLink: "https://buy.stripe.com/4gM7sKfUWbAJ37R4aYgUM00",
@@ -523,8 +523,8 @@ aiVideos: [
         },
         {
           name: "Crecimiento",
-          price: "$897",
-          period: "USD / Mes",
+          price: "A Cotizar",
+          period: "Según tu negocio y alcance",
           desc: "Ideal para negocios en crecimiento que quieren una presencia digital más sólida y mayor engagement.",
           popular: true,
           paymentLink: "https://buy.stripe.com/aFaaEW8su5cleQz7nagUM01",
@@ -543,8 +543,8 @@ aiVideos: [
         },
         {
           name: "Escala",
-          price: "Desde $1,497",
-          period: "USD / Mes",
+          price: "A Cotizar",
+          period: "Según tu negocio y alcance",
           desc: "Tu departamento creativo y de marketing externalizado al completo.",
           popular: false,
           paymentLink: "https://buy.stripe.com/14A6oGeQS5clbEnbDqgUM02",
@@ -570,7 +570,7 @@ aiVideos: [
         {
           name: "Día de Contenido — USA",
           price: "$500",
-          period: "USD / Único Pago",
+          period: "USD + gastos de viaje",
           location: "En cualquier lugar de los EE.UU.",
           desc: "Una experiencia premium de producción de contenido en tu ubicación, diseñada para negocios, marcas y profesionales en los Estados Unidos. Viajamos a tu lugar para capturar fotos y videos de alta calidad.",
           paymentLink: "https://buy.stripe.com/cNi4gyaAC5clbEn7nagUM04",
@@ -603,7 +603,7 @@ aiVideos: [
       addonsEyebrow: "À La Carte",
       addonsHeading: "Servicios Creativos",
       addons: [
-        { title: "Identidad de Marca", price: "$600 USD", desc: "Construye una identidad de marca memorable y profesional que refleje tu negocio. Incluye estrategia de marca, paleta de colores, tipografía, dirección visual y lineamientos de marca esenciales.", paymentLink: "https://buy.stripe.com/28E14mgZ034dfUD5f2gUM0b" },
+        { title: "Identidad de Marca", price: "$850 USD", desc: "Construye una identidad de marca memorable y profesional que refleje tu negocio. Incluye tu logo personalizado, estrategia de marca, paleta de colores, tipografía, dirección visual y lineamientos de marca esenciales." },
         { title: "Diseño de Logo", price: "$350 USD", desc: "Un logo personalizado diseñado para representar tu marca con una identidad moderna, atemporal y profesional. Incluye logo principal, versiones alternas y archivos listos para impresión y uso digital.", paymentLink: "https://buy.stripe.com/6oUaEW1029sB7o7fTGgUM0c" },
       ],
       webTechEyebrow: "Desarrollo y Tecnología",
@@ -638,7 +638,7 @@ aiVideos: [
   {
     key: "spot",
     title: "Spot Publicitario con IA",
-    price: "Desde $250 USD",
+    price: "Desde $400 USD",
   },
   {
     key: "avatar",
@@ -648,7 +648,7 @@ aiVideos: [
   {
     key: "starter",
     title: "AI Starter",
-    price: "5 Videos – $450 USD",
+    price: "5 Videos – $399 USD",
     features: [
       "5 videos con IA (hasta 30 segundos)",
       "Narración con voz IA incluida",

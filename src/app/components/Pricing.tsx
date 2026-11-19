@@ -23,10 +23,10 @@ export function Pricing() {
   };
   const aiPaymentLinks: Record<string, string> = {
     single: "https://buy.stripe.com/4gM8wO5gi6gp0ZJbDqgUM07",
-    starter: "https://buy.stripe.com/00w6oG8su9sB7o70YMgUM06",
+    // starter: pending new Stripe link at $399
     growth: "https://buy.stripe.com/14A4gy2469sBbEn6j6gUM08",
     avatar: "https://buy.stripe.com/6oU5kCdMOcEN0ZJfTGgUM09",
-    spot: "https://buy.stripe.com/eVq5kCbEG48haAjcHugUM0a",
+    // spot: pending new Stripe link at $400
   };
 
   return (
@@ -274,13 +274,13 @@ export function Pricing() {
                   {(addon as any).desc}
                 </p>
                 <a
-                  href={(addon as any).paymentLink}
+                  href={(addon as any).paymentLink || `https://wa.me/526642702114?text=${encodeURIComponent(`${tx.webQuoteMessage} ${addon.title}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 bg-[#643D70] text-white text-center uppercase tracking-[0.15em] hover:bg-[#543060] transition-colors duration-300 block"
                   style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, borderRadius: "3px" }}
                 >
-                  Buy Now
+                  {(addon as any).paymentLink ? (lang === "es" ? "Comprar" : "Buy Now") : (lang === "es" ? "Cotizar por WhatsApp" : "Quote via WhatsApp")}
                 </a>
               </motion.div>
             ))}
@@ -471,30 +471,30 @@ export function Pricing() {
                     </ul>
 
                     <div className="flex flex-col gap-3 mt-auto">
-                      <button
-                        type="button"
-                        onClick={() => setSelectedPlan(plan)}
-                        className={`w-full py-4 flex items-center justify-center gap-2 transition-all duration-300 ${
+                      <a
+                        href={`https://wa.me/526642702114?text=${encodeURIComponent(`${tx.webQuoteMessage} Social Media — ${plan.name}.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`w-full py-4 flex items-center justify-center gap-2 transition-all duration-300 uppercase tracking-[0.15em] ${
                           isPopular
                             ? "bg-[#D4AF37] text-[#343434] hover:bg-white hover:text-[#643D70]"
                             : "bg-[#643D70] text-white hover:bg-[#543060]"
                         }`}
-                        style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px" }}
+                        style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600 }}
                       >
-                        {plan.cta}
-                        <ArrowRight size={14} />
-                      </button>
-                      <button
-                        onClick={scrollToContact}
-                        className={`w-full py-4 border transition-all duration-300 tracking-[0.15em] uppercase ${
+                        <MessageCircle size={14} /> {tx.webQuoteWhatsApp}
+                      </a>
+                      <a
+                        href={`mailto:creativestudio.ym@gmail.com?subject=${encodeURIComponent(`Social Media — ${plan.name}`)}&body=${encodeURIComponent(`${tx.webQuoteMessage} Social Media — ${plan.name}.`)}`}
+                        className={`w-full py-4 flex items-center justify-center gap-2 border transition-all duration-300 tracking-[0.15em] uppercase ${
                           isPopular
                             ? "border-white/40 text-white hover:bg-white hover:text-[#643D70]"
                             : "border-[#643D70]/40 text-[#643D70] hover:bg-[#643D70] hover:text-white"
                         }`}
                         style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600 }}
                       >
-                        Request a Custom Quote
-                      </button>
+                        <Mail size={14} /> {tx.webQuoteEmail}
+                      </a>
                     </div>
                   </div>
                 </motion.div>
