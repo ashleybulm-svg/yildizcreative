@@ -3,6 +3,7 @@ import { motion, useInView } from "motion/react";
 import { Mail, MessageCircle, Instagram, Send } from "lucide-react";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, waLink, mailLink } from "../contactInfo";
 
 export function Contact() {
   const ref = useRef(null);
@@ -18,6 +19,15 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.business ? `Business: ${form.business}` : "",
+      form.service ? `Service: ${form.service}` : "",
+      "",
+      form.message,
+    ].filter((l, i) => l !== "" || i === 4).join("\n");
+    window.location.href = mailLink(`Website inquiry — ${form.name}`, body);
     setSubmitted(true);
   };
 
@@ -47,13 +57,13 @@ export function Contact() {
             </p>
 
             <div className="flex flex-col gap-5 mb-10">
-              <a href="mailto:creativestudio.ym@gmail.com" className="flex items-center gap-4 text-white/60 hover:text-white transition-colors duration-200 group">
+              <a href={mailLink()} className="flex items-center gap-4 text-white/60 hover:text-white transition-colors duration-200 group">
                 <div className="w-10 h-10 border border-white/15 flex items-center justify-center group-hover:border-[#D4AF37]/50 transition-colors duration-200" style={{ borderRadius: "2px" }}>
                   <Mail size={16} className="text-[#D4AF37]" />
                 </div>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300 }}>creativestudio.ym@gmail.com</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300 }}>{CONTACT_EMAIL}</span>
               </a>
-              <a href="https://wa.me/526642702114" className="flex items-center gap-4 text-white/60 hover:text-white transition-colors duration-200 group">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white/60 hover:text-white transition-colors duration-200 group">
                 <div className="w-10 h-10 border border-white/15 flex items-center justify-center group-hover:border-[#D4AF37]/50 transition-colors duration-200">
   <MessageCircle size={16} className="text-[#D4AF37]" />
 </div>
@@ -67,7 +77,7 @@ export function Contact() {
 >
   WhatsApp Business
   <br />
-  +52 664 270 2114
+  {WHATSAPP_DISPLAY}
 </span>
               </a>
             </div>

@@ -1,3 +1,4 @@
+import { Globe2 } from "lucide-react";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLang } from "../context/LanguageContext";
@@ -65,11 +66,24 @@ export function Hero() {
               {tx.sub}
             </motion.p>
 
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+              className="inline-flex items-center gap-2.5 mb-4 px-4 py-2.5 bg-[#643D70]/8 border border-[#643D70]/15 max-w-[440px]"
+              style={{ borderRadius: "999px" }}
+            >
+              <Globe2 size={16} className="text-[#643D70] flex-shrink-0" />
+              <span className="text-[#643D70]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: 1.4 }}>
+                {(tx as any).anywhereLine}
+              </span>
+            </motion.div>
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.28, ease: "easeOut" }}
-              className="text-[#643D70]/70 mb-8 max-w-[440px]"
+              className="text-[#643D70]/70 mb-8 block max-w-[440px]"
               style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400, letterSpacing: "0.04em" }}
             >
               {(tx as any).trustLine}

@@ -1,6 +1,7 @@
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, MessageCircle, Mail } from "lucide-react";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
+import { INSTAGRAM_URL, waLink, mailLink } from "../contactInfo";
 
 export function Footer() {
   const { lang } = useLang();
@@ -37,8 +38,8 @@ export function Footer() {
               {tx.footer.tagline}
             </p>
             <div className="flex gap-3">
-              {[{ icon: Instagram, label: "Instagram" }, { icon: Linkedin, label: "LinkedIn" }, { icon: Mail, label: "Email" }].map(({ icon: Icon, label }) => (
-                <a key={label} href="#" aria-label={label} className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all duration-200" style={{ borderRadius: "2px" }}>
+              {[{ icon: Instagram, label: "Instagram", href: INSTAGRAM_URL }, { icon: MessageCircle, label: "WhatsApp", href: waLink() }, { icon: Mail, label: "Email", href: mailLink() }].map(({ icon: Icon, label, href }) => (
+                <a key={label} href={href} target={label === "Email" ? undefined : "_blank"} rel="noopener noreferrer" aria-label={label} className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all duration-200" style={{ borderRadius: "2px" }}>
                   <Icon size={14} />
                 </a>
               ))}
