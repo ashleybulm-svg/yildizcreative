@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
-const initials = ["AC", "GC", "SA", "DJ"];
+const initials = ["DJ", "AC", "GC", "SA"];
 
 export function Testimonials() {
   const ref = useRef(null);
