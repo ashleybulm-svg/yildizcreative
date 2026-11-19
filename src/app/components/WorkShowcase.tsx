@@ -3,6 +3,7 @@ import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
 const showcaseItems = [
+  { type: "video", src: "/portfolio/alexander-cosmetics-spot.mp4", label: "Alexander Cosmetics", tag: "AI Commercial Spot", tagColor: "#643D70" },
   { type: "video", src: "/comercial IA.mp4", label: "AI Commercial", tag: "AI Video", tagColor: "#643D70" },
   { type: "video", src: "/comercial IA 2.mp4", label: "AI Commercial 2", tag: "AI Video", tagColor: "#643D70" },
   { type: "video", src: "/invitacion.mp4", label: "Digital Invitation", tag: "AI Video", tagColor: "#643D70" },
