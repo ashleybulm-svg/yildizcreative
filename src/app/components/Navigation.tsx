@@ -48,6 +48,7 @@ export function Navigation() {
     { label: tx.pricing, href: "#pricing" },
     { label: tx.about, href: "#founder" },
     { label: tx.process, href: "#process" },
+    { label: tx.testimonials, href: "#testimonials" },
     { label: tx.contact, href: "#portfolio" },
     { label: (tx as any).blog ?? "Blog", href: "/blog" },
   ];
