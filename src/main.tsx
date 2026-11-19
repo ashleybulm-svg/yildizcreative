@@ -10,6 +10,7 @@ import DigitalInvitations from "./app/pages/DigitalInvitations.tsx";
 import Branding from "./app/pages/Branding.tsx";
 import Blog from "./app/pages/Blog.tsx";
 import BlogPost from "./app/pages/BlogPost.tsx";
+import { WhatsAppFloat } from "./app/components/WhatsAppFloat.tsx";
 import "./styles/index.css";
 
 createRoot(document.getElementById("root")!).render(
@@ -23,5 +24,6 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
     </Routes>
+    <WhatsAppFloat />
   </BrowserRouter>
 );

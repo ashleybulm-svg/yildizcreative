@@ -4,6 +4,7 @@ import { Check, ArrowRight, Sparkles, Globe, Layout, ShoppingBag, Bot, Database,
 
 const webTechIcons: Record<string, React.ElementType> = { Globe, Layout, ShoppingBag, Bot, Database, Code };
 import { useLang } from "../context/LanguageContext";
+import { waLink, mailLink } from "../contactInfo";
 import { t } from "../translations";
 
 export function Pricing() {
@@ -185,8 +186,8 @@ export function Pricing() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {tx.webPackages.map((pkg, i) => {
               const msg = `${tx.webQuoteMessage} ${pkg.title}.`;
-              const wa = `https://wa.me/526642702114?text=${encodeURIComponent(msg)}`;
-              const mail = `mailto:creativestudio.ym@gmail.com?subject=${encodeURIComponent(`${pkg.title} — Quote`)}&body=${encodeURIComponent(msg)}`;
+              const wa = waLink(msg);
+              const mail = mailLink(`${pkg.title} — Quote`, msg);
               return (
                 <div key={i} className="flex flex-col bg-white/6 border border-[#D4AF37]/30 p-8" style={{ borderRadius: "6px" }}>
                   <h4 className="text-white mb-1" style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", fontWeight: 400 }}>{pkg.title}</h4>
@@ -274,7 +275,7 @@ export function Pricing() {
                   {(addon as any).desc}
                 </p>
                 <a
-                  href={(addon as any).paymentLink || `https://wa.me/526642702114?text=${encodeURIComponent(`${tx.webQuoteMessage} ${addon.title}.`)}`}
+                  href={(addon as any).paymentLink || waLink(`${tx.webQuoteMessage} ${addon.title}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 bg-[#643D70] text-white text-center uppercase tracking-[0.15em] hover:bg-[#543060] transition-colors duration-300 block"
@@ -472,7 +473,7 @@ export function Pricing() {
 
                     <div className="flex flex-col gap-3 mt-auto">
                       <a
-                        href={`https://wa.me/526642702114?text=${encodeURIComponent(`${tx.webQuoteMessage} Social Media — ${plan.name}.`)}`}
+                        href={waLink(`${tx.webQuoteMessage} Social Media — ${plan.name}.`)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`w-full py-4 flex items-center justify-center gap-2 transition-all duration-300 uppercase tracking-[0.15em] ${
@@ -485,7 +486,7 @@ export function Pricing() {
                         <MessageCircle size={14} /> {tx.webQuoteWhatsApp}
                       </a>
                       <a
-                        href={`mailto:creativestudio.ym@gmail.com?subject=${encodeURIComponent(`Social Media — ${plan.name}`)}&body=${encodeURIComponent(`${tx.webQuoteMessage} Social Media — ${plan.name}.`)}`}
+                        href={mailLink(`Social Media — ${plan.name}`, `${tx.webQuoteMessage} Social Media — ${plan.name}.`)}
                         className={`w-full py-4 flex items-center justify-center gap-2 border transition-all duration-300 tracking-[0.15em] uppercase ${
                           isPopular
                             ? "border-white/40 text-white hover:bg-white hover:text-[#643D70]"
