@@ -267,6 +267,14 @@ export const t = {
         { title: "Custom Software", icon: "Code" },
       ],
       webTechCta: "Tell Us What You Need",
+      webPackages: [
+        { title: "Landing Page", price: "From $450 USD", desc: "One focused page built to convert — ideal for ad campaigns, launches, or a fast online presence.", features: ["Single page, up to 5 sections", "Mobile-friendly design", "WhatsApp, call & contact buttons", "Basic SEO & Google Analytics", "Delivery in 5–7 business days"] },
+        { title: "Website", price: "From $800 USD", desc: "An informational website that represents your whole business and helps clients find and trust you.", features: ["Up to 5 sections or pages", "Bilingual (English / Spanish)", "Mobile-friendly design", "WhatsApp, call, map & contact form", "Basic SEO, Google Analytics & Google Business setup"] },
+      ],
+      webPackagesNote: "Online stores, booking systems, and custom features are quoted separately. Final price depends on the scope of your project.",
+      webQuoteWhatsApp: "Quote via WhatsApp",
+      webQuoteEmail: "Quote via Email",
+      webQuoteMessage: "Hi! I'd like a quote for a",
       aiStudioHeading: "AI Video Studio",
 
 aiStudioSub:
@@ -605,6 +613,14 @@ aiVideos: [
         { title: "Software Personalizado", icon: "Code" },
       ],
       webTechCta: "Cuéntanos lo que Necesitas",
+      webPackages: [
+        { title: "Landing Page", price: "Desde $450 USD", desc: "Una página enfocada en convertir — ideal para campañas de anuncios, lanzamientos o tener presencia en línea rápido.", features: ["Una página, hasta 5 secciones", "Diseño adaptado a celular", "Botones de WhatsApp, llamada y contacto", "SEO básico y Google Analytics", "Entrega en 5–7 días hábiles"] },
+        { title: "Sitio Web", price: "Desde $800 USD", desc: "Un sitio informativo que representa todo tu negocio y ayuda a que los clientes te encuentren y confíen en ti.", features: ["Hasta 5 secciones o páginas", "Bilingüe (inglés / español)", "Diseño adaptado a celular", "WhatsApp, llamada, mapa y formulario", "SEO básico, Google Analytics y Google Business"] },
+      ],
+      webPackagesNote: "Tiendas en línea, sistemas de reservaciones y funciones a medida se cotizan aparte. El precio final depende del alcance de tu proyecto.",
+      webQuoteWhatsApp: "Cotizar por WhatsApp",
+      webQuoteEmail: "Cotizar por Correo",
+      webQuoteMessage: "¡Hola! Me gustaría cotizar un(a)",
       aiStudioHeading: "AI Video Studio",
 
 aiStudioSub:

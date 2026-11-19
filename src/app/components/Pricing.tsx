@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Check, ArrowRight, Sparkles, Globe, Layout, ShoppingBag, Bot, Database, Code } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Globe, Layout, ShoppingBag, Bot, Database, Code, Mail, MessageCircle } from "lucide-react";
 
 const webTechIcons: Record<string, React.ElementType> = { Globe, Layout, ShoppingBag, Bot, Database, Code };
 import { useLang } from "../context/LanguageContext";
@@ -242,6 +242,39 @@ export function Pricing() {
               );
             })}
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {tx.webPackages.map((pkg, i) => {
+              const msg = `${tx.webQuoteMessage} ${pkg.title}.`;
+              const wa = `https://wa.me/526642702114?text=${encodeURIComponent(msg)}`;
+              const mail = `mailto:creativestudio.ym@gmail.com?subject=${encodeURIComponent(`${pkg.title} — Quote`)}&body=${encodeURIComponent(msg)}`;
+              return (
+                <div key={i} className="flex flex-col bg-white/6 border border-[#D4AF37]/30 p-8" style={{ borderRadius: "6px" }}>
+                  <h4 className="text-white mb-1" style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", fontWeight: 400 }}>{pkg.title}</h4>
+                  <div className="text-[#D4AF37] mb-4" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "20px", fontWeight: 500 }}>{pkg.price}</div>
+                  <p className="text-white/60 mb-5" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 300, lineHeight: 1.7 }}>{pkg.desc}</p>
+                  <ul className="space-y-2 mb-7 flex-1">
+                    {pkg.features.map((f, j) => (
+                      <li key={j} className="flex items-start gap-2 text-white/80" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 300 }}>
+                        <Check size={14} className="text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a href={wa} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#D4AF37] text-[#343434] hover:bg-white transition-all duration-300" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "3px" }}>
+                      <MessageCircle size={14} /> {tx.webQuoteWhatsApp}
+                    </a>
+                    <a href={mail} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 border border-white/30 text-white hover:bg-white hover:text-[#343434] transition-all duration-300" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: "3px" }}>
+                      <Mail size={14} /> {tx.webQuoteEmail}
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-white/45 text-center mb-10 max-w-2xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 300, lineHeight: 1.7 }}>
+            {tx.webPackagesNote}
+          </p>
           <div className="text-center">
             <button
               onClick={scrollToContact}
