@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import yesseniaSrc from "../../imports/WhatsApp_Image_2026-06-07_at_3.03.28_AM__1_.jpeg";
+import yesseniaSrc from "../../imports/founder-yesse.jpg";
 import { useLang } from "../context/LanguageContext";
 import { t } from "../translations";
 
