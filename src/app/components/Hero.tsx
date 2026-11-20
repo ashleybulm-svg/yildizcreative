@@ -139,7 +139,7 @@ export function Hero() {
                 style={{ width: "clamp(280px, 38vw, 460px)", aspectRatio: "4/5", borderRadius: "4px" }}
               >
                 <ImageWithFallback
-                  src="/hero-yildiz.png"
+                  src="/hero-yesse.jpg"
                   alt="Yessenia Melo, Founder of Yildiz Creative"
                   className="w-full h-full object-cover object-top"
                 />
